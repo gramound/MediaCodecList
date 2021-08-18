@@ -12,25 +12,16 @@ import com.broadcom.android.tv.demo.mediacodeclist.MediaCodecListFragment.OnList
 
 import kotlinx.android.synthetic.main.fragment_codec.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
 class MediaCodecListAdapter(
     private val mValues: Array<MediaCodecInfo>,
     private val mListener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MediaCodecListAdapter.ViewHolder>() {
 
-    private val mOnClickListener: View.OnClickListener
-
-    init {
-        mOnClickListener = View.OnClickListener { v ->
-            val item = v.tag as MediaCodecInfo
-            // Notify the active callbacks interface (the activity, if the fragment is attached to
-            // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
-        }
+    private val mOnClickListener: View.OnClickListener = View.OnClickListener { v ->
+        val item = v.tag as MediaCodecInfo
+        // Notify the active callbacks interface (the activity, if the fragment is attached to
+        // one) that an item has been selected.
+        mListener?.onListFragmentInteraction(item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

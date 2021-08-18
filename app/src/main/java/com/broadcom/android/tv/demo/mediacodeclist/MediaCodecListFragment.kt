@@ -18,15 +18,11 @@ import android.view.ViewGroup
  * [MediaCodecListFragment.OnListFragmentInteractionListener] interface.
  */
 class MediaCodecListFragment : Fragment() {
-
-    // TODO: Customize parameters
-    private var columnCount = 1
-
+    private var columnCount = 4
     private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
@@ -56,7 +52,7 @@ class MediaCodecListFragment : Fragment() {
         if (context is OnListFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }
     }
 
@@ -82,17 +78,7 @@ class MediaCodecListFragment : Fragment() {
     }
 
     companion object {
-
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            MediaCodecListFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
     }
 }
