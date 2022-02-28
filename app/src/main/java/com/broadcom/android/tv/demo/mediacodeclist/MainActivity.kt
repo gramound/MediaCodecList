@@ -1,17 +1,11 @@
 package com.broadcom.android.tv.demo.mediacodeclist
 
-import android.media.MediaCodecInfo
-import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
 import android.media.MediaCodecList
-
+import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.FragmentActivity
 
-class MainActivity : FragmentActivity(), MediaCodecListFragment.OnListFragmentInteractionListener {
-    override fun onListFragmentInteraction(item: MediaCodecInfo?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         for ((i, mediaCodecInfo) in MediaCodecList(MediaCodecList.ALL_CODECS).codecInfos.withIndex()) {
